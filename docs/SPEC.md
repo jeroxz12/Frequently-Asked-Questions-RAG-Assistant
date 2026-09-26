@@ -15,7 +15,9 @@ Incluido:
 - Agente evaluador (bonus): puntaje 0–10 + justificación.
 - CLI (`python main.py ...`), tests deterministas, README.
 
-Fuera de alcance: API HTTP, UI, múltiples documentos, historial de conversación, actualización incremental del índice.
+Opcional (después de cumplir la consigna): comparación ANN vs. k-NN, endpoint HTTP con FastAPI, backend de vector store con pgvector.
+
+Fuera de alcance: UI, múltiples documentos, historial de conversación, actualización incremental del índice.
 
 ## 3. Arquitectura
 
@@ -44,6 +46,8 @@ src/vector_store.py          # guardar/cargar índice + búsqueda por similitud
 src/build_index.py           # pipeline de indexación
 src/query.py                 # pipeline de consulta
 src/evaluator.py             # agente evaluador (bonus)
+src/api.py                   # (opcional, M10) endpoint FastAPI
+docker-compose.yml           # (opcional, M11) Postgres + pgvector
 main.py                      # CLI: `build`, `ask`
 tests/
 .env.example
@@ -52,6 +56,26 @@ README.md
 ```
 
 ## 5. Contratos
+
+### 5.0 Formato del documento fuente
+
+`data/faq_document.txt` (UTF-8, ~3.400 palabras) sigue una estructura fija que el chunking puede aprovechar:
+
+```
+NEXO HR — PREGUNTAS FRECUENTES Y GUÍA DE USO      ← encabezado + párrafo de introducción
+...
+
+## Vacaciones y licencias                          ← sección: línea que empieza con "## "
+
+P: ¿Cómo solicito vacaciones?                      ← pregunta: línea que empieza con "P: "
+R: Las vacaciones se solicitan ...                 ← respuesta: empieza con "R: ", puede tener
+1. Ve a Ausencias > Nueva solicitud.                  varias líneas y pasos numerados
+...
+```
+
+- 11 secciones y 33 pares pregunta/respuesta (entre 129 y 192 tokens cada uno).
+- Mezcla preguntas de "cómo hacer" (con pasos numerados), de sí/no y de datos puntuales (plazos, precios, límites), para cubrir los tipos de pregunta que menciona la rúbrica.
+- El encabezado y el párrafo de introducción no pertenecen a ningún par: el chunking también tiene que capturarlos (100% del contenido).
 
 ### 5.1 Salida de una consulta (`QueryResult`)
 
@@ -127,7 +151,13 @@ Cada milestone sigue el mismo ciclo: **concepto → contrato → implementación
 | M6 | CLI y ejemplos | Orquestación de punta a punta | `main.py`, `outputs/sample_queries.json`, chequeo de palabras clave | ≥3 ejemplos; ≥80% de chunks relevantes |
 | M7 | Evaluador (bonus) | LLM-as-judge, fidelidad, detección de alucinaciones | `src/evaluator.py` | `score` 0–10 y `reason` ≥50 caracteres, ≥2 dimensiones |
 | M8 | README y cierre | Documentar decisiones técnicas | `README.md` | Cumple cada indicador de la rúbrica (sección 10) |
-| M9 | Opcional | ANN vs. k-NN, recall@k | Script comparativo | Tabla de velocidad y recall |
+| M9 | Opcional: ANN vs. k-NN | Índices aproximados (HNSW), recall@k | Script comparativo | Tabla de velocidad y recall |
+| M10 | Opcional: API con FastAPI | Endpoints, validación con Pydantic, códigos HTTP, Swagger | `src/api.py`: `POST /ask`, `GET /health` | El endpoint devuelve el mismo `QueryResult` que la CLI; 400 si la pregunta está vacía, 503 si no hay índice |
+| M11 | Opcional: pgvector | Interfaz de vector store, bases vectoriales, índices en Postgres | Interfaz `VectorStore` (`add`, `search`), `NumpyVectorStore`, `PgVectorStore`, `docker-compose.yml` | Mismos resultados de búsqueda con ambos backends; `VECTOR_STORE=numpy` sigue siendo el default y no requiere Docker |
+
+Estado: M0 ✅ · M1 ✅ · M2 siguiente.
+
+Regla para los opcionales: toda la lógica RAG vive en `answer_question(question) -> QueryResult`. La CLI y la API son dos puertas de entrada a esa misma función, y el backend de almacenamiento se elige por configuración sin tocar los pipelines.
 
 ## 10. Trazabilidad con la rúbrica
 
