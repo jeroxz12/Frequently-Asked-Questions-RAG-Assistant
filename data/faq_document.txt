@@ -1,0 +1,165 @@
+NEXO HR — PREGUNTAS FRECUENTES Y GUÍA DE USO
+Documentación interna para el equipo de soporte al cliente.
+Última actualización: septiembre de 2026.
+
+Nexo HR es una plataforma SaaS de gestión de recursos humanos para empresas de 20 a 5.000 empleados. Incluye módulos de gestión de empleados, vacaciones y licencias, control de asistencia, nómina, evaluaciones de desempeño y reportes. Este documento reúne las preguntas más frecuentes de clientes y empleados, junto con las políticas y procedimientos vigentes.
+
+## Cuenta y acceso
+
+P: ¿Cómo activo mi cuenta de Nexo HR por primera vez?
+R: Cuando el área de RRHH de tu empresa te da de alta, recibes un correo de invitación desde no-reply@nexohr.com. Para activar la cuenta sigue estos pasos:
+1. Abre el correo de invitación y haz clic en "Activar mi cuenta".
+2. Define una contraseña de al menos 12 caracteres que incluya una mayúscula, un número y un símbolo.
+3. Acepta los términos de uso y la política de privacidad.
+4. Configura la verificación en dos pasos si tu empresa la exige.
+El enlace de invitación vence a las 72 horas. Si venció, pide a un administrador de RRHH que te reenvíe la invitación desde Empleados > Perfil > Reenviar invitación.
+
+P: Olvidé mi contraseña. ¿Cómo la restablezco?
+R: En la pantalla de inicio de sesión haz clic en "¿Olvidaste tu contraseña?", ingresa tu correo corporativo y recibirás un enlace de restablecimiento válido por 30 minutos. La nueva contraseña no puede ser igual a ninguna de las últimas cinco que usaste. Por seguridad, después de cinco intentos fallidos de inicio de sesión la cuenta se bloquea durante 15 minutos. Si tu empresa usa inicio de sesión único (SSO), la contraseña se gestiona en tu proveedor de identidad y debes contactar a tu área de sistemas.
+
+P: ¿Nexo HR ofrece verificación en dos pasos?
+R: Sí. La verificación en dos pasos (2FA) está disponible para todos los planes y se configura desde Mi perfil > Seguridad. Se puede usar una aplicación de autenticación compatible con TOTP, como Google Authenticator o Microsoft Authenticator, o recibir un código por SMS. Los administradores de la cuenta en planes Business y Enterprise pueden hacer que la verificación en dos pasos sea obligatoria para todos los usuarios desde Configuración > Seguridad > Políticas de acceso. Al activarla, el sistema entrega diez códigos de recuperación de un solo uso que conviene guardar en un lugar seguro.
+
+P: ¿Puedo iniciar sesión con la cuenta de Google o Microsoft de mi empresa?
+R: Sí, siempre que tu empresa tenga contratado el plan Business o Enterprise. Nexo HR admite inicio de sesión único (SSO) mediante SAML 2.0 y OpenID Connect, y tiene integraciones preconfiguradas con Google Workspace, Microsoft Entra ID y Okta. La configuración la realiza un administrador desde Configuración > Seguridad > Inicio de sesión único. Una vez activado el SSO, los empleados ya no usan una contraseña de Nexo HR y el acceso se revoca automáticamente cuando la cuenta se desactiva en el proveedor de identidad.
+
+## Gestión de empleados
+
+P: ¿Cómo doy de alta a un nuevo empleado?
+R: Los usuarios con rol de Administrador de RRHH pueden dar de alta empleados desde el módulo Empleados:
+1. Ve a Empleados > Nuevo empleado.
+2. Completa los datos obligatorios: nombre, apellido, correo corporativo, documento de identidad, fecha de ingreso, puesto, departamento y responsable directo.
+3. Asigna la política de vacaciones y el calendario laboral que corresponda.
+4. Opcionalmente, carga el contrato firmado en la pestaña Documentos.
+5. Haz clic en "Guardar y enviar invitación".
+El empleado recibe la invitación por correo y su perfil queda activo desde la fecha de ingreso indicada. Cada alta suma un usuario activo a la facturación del mes.
+
+P: ¿Puedo importar empleados de forma masiva?
+R: Sí. Desde Empleados > Importar puedes descargar la plantilla en formato CSV o XLSX, completarla y subirla. Cada archivo admite hasta 2.000 filas. Antes de confirmar la importación, el sistema muestra una vista previa con los errores detectados, por ejemplo correos duplicados, fechas con formato inválido o departamentos inexistentes. Las filas con errores se omiten y se pueden descargar en un archivo aparte para corregirlas. La importación no envía invitaciones automáticamente: debes marcar la opción "Enviar invitaciones al finalizar" si quieres que los empleados reciban el correo de activación.
+
+P: ¿Cómo registro la baja de un empleado?
+R: Para registrar una baja, ve al perfil del empleado y haz clic en Acciones > Registrar baja. Debes indicar la fecha de egreso, el motivo (renuncia, despido, fin de contrato, jubilación u otro) y si corresponde liquidar vacaciones no gozadas. A partir de la fecha de egreso el empleado pierde el acceso a la plataforma y deja de contar como usuario activo para la facturación del mes siguiente. Sus datos y documentos se conservan en modo solo lectura durante el plazo de retención definido por la empresa, que por defecto es de cinco años.
+
+P: ¿Un empleado puede modificar sus propios datos personales?
+R: Sí, parcialmente. Desde Mi perfil, cada empleado puede actualizar su domicilio, teléfono, contacto de emergencia, datos bancarios y foto. Los cambios en datos bancarios quedan pendientes hasta que un administrador de RRHH los aprueba, para evitar fraudes en el pago de la nómina. Los datos contractuales, como el puesto, el salario, la fecha de ingreso o el responsable directo, solo pueden ser modificados por usuarios con rol de Administrador de RRHH. Todas las modificaciones quedan registradas en el historial del perfil con la fecha y el usuario que las realizó.
+
+## Vacaciones y licencias
+
+P: ¿Cómo solicito vacaciones?
+R: Las vacaciones se solicitan desde la aplicación web o la aplicación móvil siguiendo estos pasos:
+1. Ve a Ausencias > Nueva solicitud.
+2. Selecciona el tipo de ausencia "Vacaciones".
+3. Elige la fecha de inicio y la fecha de fin. El sistema calcula automáticamente los días hábiles según tu calendario laboral y excluye feriados y fines de semana.
+4. Agrega un comentario opcional para tu responsable.
+5. Haz clic en "Enviar solicitud".
+Tu responsable directo recibe una notificación para aprobarla o rechazarla. Mientras la solicitud está pendiente puedes cancelarla sin necesidad de aprobación.
+
+P: ¿Cuántos días de vacaciones me corresponden?
+R: La cantidad de días depende de la política de vacaciones que tu empresa te asignó y de tu antigüedad. La política estándar que Nexo HR configura por defecto otorga 14 días corridos hasta 5 años de antigüedad, 21 días entre 5 y 10 años, 28 días entre 10 y 20 años y 35 días a partir de los 20 años. Tu empresa puede haberla modificado. Puedes consultar tu saldo disponible, los días ya gozados y los días pendientes de aprobación en Ausencias > Mi saldo.
+
+P: ¿Con cuánta anticipación debo pedir las vacaciones?
+R: Según la política estándar, las vacaciones deben solicitarse con al menos 15 días corridos de anticipación. Las solicitudes de hasta dos días pueden hacerse con 48 horas de anticipación. El responsable directo tiene cinco días hábiles para responder; si no responde en ese plazo, la solicitud se escala automáticamente al Administrador de RRHH. Cada empresa puede configurar plazos distintos desde Configuración > Ausencias > Reglas de solicitud, por lo que conviene revisar la política interna de tu organización.
+
+P: ¿Los días de vacaciones no usados se acumulan para el año siguiente?
+R: Depende de la configuración de tu empresa. En la política estándar de Nexo HR se pueden trasladar hasta 5 días no usados al año siguiente, y esos días vencen el 31 de marzo si no se utilizan. Los días que superen ese límite se pierden al cierre del período anual, salvo que la empresa haya habilitado la opción de liquidarlos en la nómina. El traslado se aplica de forma automática el 1 de enero y queda registrado como un movimiento en el historial de saldo de cada empleado.
+
+P: ¿Qué licencias especiales puedo registrar además de las vacaciones?
+R: Además de las vacaciones, Nexo HR incluye por defecto los siguientes tipos de ausencia: enfermedad, maternidad, paternidad, matrimonio, fallecimiento de familiar, mudanza, examen de estudio y día personal. Cada tipo tiene reglas propias: por ejemplo, la licencia por enfermedad exige adjuntar un certificado médico dentro de las 48 horas y la licencia por examen requiere el comprobante de la institución educativa. Los administradores pueden crear tipos de ausencia personalizados desde Configuración > Ausencias > Tipos de ausencia, definiendo si son pagas, si descuentan saldo y si requieren aprobación.
+
+## Control de asistencia
+
+P: ¿Cómo registro mi entrada y salida?
+R: Puedes fichar tu entrada y salida de tres formas: desde el botón "Fichar" en la aplicación web, desde la aplicación móvil o desde un kiosco (tablet compartida) instalado en la oficina. Para fichar desde el celular:
+1. Abre la aplicación Nexo HR e inicia sesión.
+2. Toca el botón "Fichar entrada" en la pantalla principal.
+3. Si tu empresa exige geolocalización, acepta el permiso de ubicación.
+4. Al terminar la jornada, toca "Fichar salida".
+Las pausas, como el almuerzo, se registran con el botón "Iniciar pausa" y "Finalizar pausa", y no cuentan como tiempo trabajado.
+
+P: Me olvidé de fichar. ¿Puedo corregir un fichaje?
+R: Sí. Desde Asistencia > Mis fichajes, selecciona el día y haz clic en "Solicitar corrección". Indica la hora correcta de entrada o salida y el motivo del olvido. La corrección queda pendiente hasta que tu responsable directo la aprueba. Las correcciones pueden solicitarse hasta siete días corridos después de la fecha del fichaje; pasado ese plazo, solo un Administrador de RRHH puede modificar el registro. Todas las correcciones aprobadas quedan marcadas en el reporte de asistencia para fines de auditoría.
+
+P: ¿La aplicación registra mi ubicación todo el tiempo?
+R: No. Nexo HR solo registra la ubicación en el momento exacto en que fichas la entrada, la salida o una pausa, y únicamente si tu empresa activó la opción de geolocalización. No hay seguimiento continuo en segundo plano. Los administradores pueden definir zonas permitidas (geocercas) de hasta 500 metros de radio alrededor de cada oficina; si fichas fuera de esa zona, el fichaje se registra igual pero queda marcado para revisión. Puedes consultar las ubicaciones registradas en el detalle de cada fichaje.
+
+P: ¿Cómo se calculan las horas extra?
+R: Las horas extra se calculan automáticamente comparando el tiempo trabajado de cada día con la jornada asignada en el calendario laboral del empleado. Por defecto, solo se consideran horas extra los bloques de al menos 30 minutos por encima de la jornada. Las horas extra requieren aprobación del responsable directo antes de enviarse a la nómina. Los recargos, por ejemplo un 50% en días hábiles y un 100% en fines de semana y feriados, se configuran en Configuración > Asistencia > Reglas de horas extra según la legislación y el convenio aplicable.
+
+## Nómina y recibos de sueldo
+
+P: ¿Dónde veo y descargo mis recibos de sueldo?
+R: Tus recibos de sueldo están disponibles en Nómina > Mis recibos, tanto en la aplicación web como en la móvil. Cada recibo se publica en formato PDF el día que tu empresa cierra la liquidación del mes. Puedes descargar los recibos de los últimos cinco años. Si tu empresa utiliza firma digital, deberás firmar cada recibo desde la misma pantalla haciendo clic en "Firmar recibo" e ingresando un código que recibirás por correo. Los recibos firmados quedan con un sello de fecha y hora.
+
+P: ¿Cómo procesa un administrador la nómina mensual?
+R: El proceso de nómina mensual lo realiza un usuario con rol de Administrador de Nómina:
+1. Ve a Nómina > Nueva liquidación y selecciona el período.
+2. Revisa las novedades del mes: altas, bajas, ausencias, horas extra aprobadas y bonificaciones.
+3. Haz clic en "Calcular" para generar la liquidación preliminar.
+4. Revisa el resumen y corrige los conceptos que sean necesarios.
+5. Haz clic en "Cerrar liquidación" para bloquear los montos.
+6. Publica los recibos para que los empleados los vean.
+Una liquidación cerrada no se puede editar; si hay un error, se debe generar una liquidación complementaria.
+
+P: ¿Nexo HR realiza el pago de los sueldos?
+R: No. Nexo HR calcula la nómina y genera los recibos, pero no transfiere dinero ni actúa como entidad de pago. Al cerrar una liquidación, el sistema genera un archivo de pagos compatible con los principales bancos, que el área de finanzas de tu empresa debe subir a su banca en línea para ejecutar las transferencias. También se puede exportar un asiento contable para el sistema de contabilidad. Si un empleado no recibió su sueldo, debe consultar con el área de finanzas de su empresa, no con el soporte de Nexo HR.
+
+## Evaluaciones de desempeño
+
+P: ¿Cómo funciona un ciclo de evaluación de desempeño?
+R: Un ciclo de evaluación tiene cuatro etapas: autoevaluación, evaluación del responsable, calibración y reunión de devolución. Durante la autoevaluación, cada empleado completa el formulario sobre sus objetivos y competencias. Luego, el responsable directo evalúa al empleado con el mismo formulario. En la calibración, RRHH y los líderes revisan los resultados para asegurar criterios consistentes entre equipos. Finalmente, responsable y empleado mantienen una reunión de devolución y el empleado confirma que recibió los resultados. Cada etapa tiene fechas límite y recordatorios automáticos por correo.
+
+P: ¿Cómo creo un nuevo ciclo de evaluación?
+R: Los Administradores de RRHH crean ciclos de evaluación desde Desempeño > Ciclos > Nuevo ciclo:
+1. Asigna un nombre al ciclo y define las fechas de inicio y fin de cada etapa.
+2. Selecciona los participantes por departamento, ubicación o de forma individual.
+3. Elige una plantilla de formulario o crea una nueva con preguntas de escala, texto libre y objetivos.
+4. Indica si la evaluación incluye feedback de pares (evaluación 360°).
+5. Haz clic en "Lanzar ciclo".
+Una vez lanzado, los participantes reciben una notificación y ya no se pueden modificar las preguntas del formulario.
+
+P: ¿Las evaluaciones de pares son anónimas?
+R: Sí, por defecto. En las evaluaciones 360°, el feedback de pares se muestra al evaluado de forma agregada y sin identificar a los autores. Para proteger el anonimato, los resultados de pares solo se muestran si hay al menos tres respuestas; con menos respuestas, se ocultan. Los Administradores de RRHH pueden ver la autoría únicamente si la empresa desactivó explícitamente el anonimato al crear el ciclo, y esa configuración se informa a los participantes antes de responder.
+
+## Reportes
+
+P: ¿Qué reportes puedo generar en Nexo HR?
+R: Nexo HR incluye más de 30 reportes predefinidos agrupados en cinco categorías: dotación (altas, bajas, rotación y antigüedad), ausencias (saldos de vacaciones, ausentismo por tipo y por departamento), asistencia (horas trabajadas, horas extra y llegadas tarde), nómina (costo laboral por centro de costo) y desempeño (distribución de calificaciones). Todos los reportes se pueden filtrar por fecha, departamento y ubicación, y exportar a CSV, XLSX o PDF. El acceso a cada reporte depende del rol del usuario: por ejemplo, los responsables de equipo solo ven datos de sus colaboradores.
+
+P: ¿Puedo programar el envío automático de un reporte?
+R: Sí, en los planes Business y Enterprise. Para programar un reporte:
+1. Abre el reporte y aplica los filtros que necesites.
+2. Haz clic en "Programar envío".
+3. Elige la frecuencia: diaria, semanal o mensual, y la hora de envío.
+4. Agrega los destinatarios, que deben ser usuarios de Nexo HR con permiso para ver ese reporte.
+5. Selecciona el formato del archivo adjunto y guarda la programación.
+Puedes pausar o eliminar las programaciones desde Reportes > Envíos programados.
+
+## Planes y facturación
+
+P: ¿Qué planes ofrece Nexo HR y cuánto cuestan?
+R: Nexo HR ofrece tres planes con facturación por usuario activo por mes. El plan Starter cuesta 4 dólares por usuario e incluye gestión de empleados, vacaciones y licencias, y control de asistencia. El plan Business cuesta 8 dólares por usuario y suma nómina, evaluaciones de desempeño, SSO, reportes programados e integraciones. El plan Enterprise tiene precio a medida para empresas de más de 1.000 empleados e incluye un gerente de cuenta dedicado, acuerdo de nivel de servicio del 99,9% y entorno de pruebas. Todos los planes tienen un mínimo de 20 usuarios facturables.
+
+P: ¿Cómo se calcula la factura mensual?
+R: La factura se calcula según la cantidad máxima de usuarios activos que tuvo la cuenta durante el mes calendario. Un usuario activo es cualquier empleado con perfil habilitado, haya iniciado sesión o no. Los empleados dados de baja dejan de facturarse a partir del mes siguiente a su fecha de egreso. Las facturas se emiten el primer día hábil de cada mes y se pueden descargar desde Configuración > Facturación > Historial de facturas. Los pagos se realizan con tarjeta de crédito o transferencia bancaria, esta última solo en planes anuales.
+
+P: ¿Puedo cambiar de plan o cancelar la suscripción?
+R: Sí. Puedes pasar a un plan superior en cualquier momento desde Configuración > Facturación > Cambiar plan; el cambio es inmediato y se cobra la diferencia proporcional de los días restantes del mes. El cambio a un plan inferior se aplica al inicio del siguiente período de facturación. Para cancelar la suscripción, el propietario de la cuenta debe hacerlo desde Configuración > Facturación > Cancelar suscripción. Después de cancelar, la cuenta permanece en modo solo lectura durante 30 días para que puedas exportar tus datos, y luego se eliminan de forma definitiva.
+
+P: ¿Hay un período de prueba gratuito?
+R: Sí. Todas las empresas nuevas pueden probar el plan Business gratis durante 14 días, sin ingresar una tarjeta de crédito y con hasta 50 empleados. Durante la prueba se pueden usar todas las funcionalidades del plan Business, incluida la nómina. Al finalizar los 14 días, si no se eligió un plan, la cuenta pasa a modo solo lectura durante 30 días. Los datos cargados durante la prueba se conservan al contratar cualquier plan, por lo que no es necesario volver a configurar la cuenta.
+
+## Seguridad y privacidad de datos
+
+P: ¿Dónde se almacenan los datos y cómo se protegen?
+R: Los datos de Nexo HR se almacenan en centros de datos de Amazon Web Services ubicados en la región elegida al crear la cuenta: Estados Unidos, Unión Europea o Brasil. Toda la información se cifra en tránsito con TLS 1.2 o superior y en reposo con AES-256. Se realizan copias de seguridad automáticas cada 24 horas que se conservan durante 35 días. Nexo HR cuenta con la certificación ISO 27001 y un informe SOC 2 Tipo II, que los clientes Enterprise pueden solicitar a su gerente de cuenta bajo acuerdo de confidencialidad.
+
+P: ¿Cómo solicito la exportación o eliminación de los datos de un empleado?
+R: Para cumplir con solicitudes de acceso o eliminación de datos personales, un Administrador de RRHH puede ir al perfil del empleado y usar Acciones > Privacidad. La opción "Exportar datos" genera un archivo ZIP con toda la información personal y los documentos del empleado en un plazo máximo de 24 horas. La opción "Anonimizar" reemplaza los datos personales por valores genéricos de forma irreversible, conservando solo los datos agregados necesarios para reportes históricos. La anonimización no se puede deshacer y requiere la confirmación del propietario de la cuenta.
+
+## Integraciones y soporte
+
+P: ¿Con qué herramientas se integra Nexo HR?
+R: Nexo HR se integra de forma nativa con Slack y Microsoft Teams para notificaciones y aprobaciones, con Google Calendar y Outlook para sincronizar ausencias, y con los sistemas contables Xero y QuickBooks para exportar asientos de nómina. En los planes Business y Enterprise también está disponible una API REST documentada en developers.nexohr.com, que permite leer y escribir datos de empleados, ausencias y fichajes. La API usa autenticación con tokens OAuth 2.0 y tiene un límite de 100 solicitudes por minuto por cuenta.
+
+P: ¿Cómo contacto al soporte de Nexo HR y en qué horario atienden?
+R: El soporte atiende por chat dentro de la aplicación y por correo a soporte@nexohr.com, de lunes a viernes de 8:00 a 20:00 (hora de Buenos Aires). Los clientes Enterprise tienen además soporte telefónico las 24 horas para incidentes críticos. Los tiempos de primera respuesta son de 24 horas hábiles en el plan Starter, 8 horas hábiles en Business y 1 hora en Enterprise. Importante: el soporte de Nexo HR asiste a los administradores de la cuenta; los empleados deben dirigir sus consultas sobre políticas internas, como sueldos o vacaciones, al área de RRHH de su empresa.
