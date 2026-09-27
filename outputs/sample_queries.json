@@ -1,0 +1,152 @@
+[
+  {
+    "user_question": "¿Cuántos días de vacaciones tengo?",
+    "system_answer": "La cantidad de días de vacaciones que te corresponden depende de la política de vacaciones que tu empresa te asignó y de tu antigüedad. La política estándar de Nexo HR otorga:\n- 14 días corridos hasta 5 años de antigüedad,\n- 21 días entre 5 y 10 años,\n- 28 días entre 10 y 20 años,\n- 35 días a partir de los 20 años.\nPuedes consultar tu saldo disponible, los días ya gozados y los días pendientes de aprobación en Ausencias > Mi saldo.",
+    "chunks_related": [
+      {
+        "chunk_id": 10,
+        "section": "Vacaciones y licencias",
+        "similarity": 0.6863,
+        "text": "Vacaciones y licencias\nP: ¿Cuántos días de vacaciones me corresponden?\nR: La cantidad de días depende de la política de vacaciones que tu empresa te asignó y de tu antigüedad. La política estándar que Nexo HR configura por defecto otorga 14 días corridos hasta 5 años de antigüedad, 21 días entre 5 y 10 años, 28 días entre 10 y 20 años y 35 días a partir de los 20 años. Tu empresa puede haberla modificado. Puedes consultar tu saldo disponible, los días ya gozados y los días pendientes de aprobación en Ausencias > Mi saldo."
+      },
+      {
+        "chunk_id": 11,
+        "section": "Vacaciones y licencias",
+        "similarity": 0.5857,
+        "text": "Vacaciones y licencias\nP: ¿Con cuánta anticipación debo pedir las vacaciones?\nR: Según la política estándar, las vacaciones deben solicitarse con al menos 15 días corridos de anticipación. Las solicitudes de hasta dos días pueden hacerse con 48 horas de anticipación. El responsable directo tiene cinco días hábiles para responder; si no responde en ese plazo, la solicitud se escala automáticamente al Administrador de RRHH. Cada empresa puede configurar plazos distintos desde Configuración > Ausencias > Reglas de solicitud, por lo que conviene revisar la política interna de tu organización."
+      },
+      {
+        "chunk_id": 12,
+        "section": "Vacaciones y licencias",
+        "similarity": 0.5563,
+        "text": "Vacaciones y licencias\nP: ¿Los días de vacaciones no usados se acumulan para el año siguiente?\nR: Depende de la configuración de tu empresa. En la política estándar de Nexo HR se pueden trasladar hasta 5 días no usados al año siguiente, y esos días vencen el 31 de marzo si no se utilizan. Los días que superen ese límite se pierden al cierre del período anual, salvo que la empresa haya habilitado la opción de liquidarlos en la nómina. El traslado se aplica de forma automática el 1 de enero y queda registrado como un movimiento en el historial de saldo de cada empleado."
+      },
+      {
+        "chunk_id": 9,
+        "section": "Vacaciones y licencias",
+        "similarity": 0.5545,
+        "text": "Vacaciones y licencias\nP: ¿Cómo solicito vacaciones?\nR: Las vacaciones se solicitan desde la aplicación web o la aplicación móvil siguiendo estos pasos:\n1. Ve a Ausencias > Nueva solicitud.\n2. Selecciona el tipo de ausencia \"Vacaciones\".\n3. Elige la fecha de inicio y la fecha de fin. El sistema calcula automáticamente los días hábiles según tu calendario laboral y excluye feriados y fines de semana.\n4. Agrega un comentario opcional para tu responsable.\n5. Haz clic en \"Enviar solicitud\".\nTu responsable directo recibe una notificación para aprobarla o rechazarla. Mientras la solicitud está pendiente puedes cancelarla sin necesidad de aprobación."
+      },
+      {
+        "chunk_id": 13,
+        "section": "Vacaciones y licencias",
+        "similarity": 0.5161,
+        "text": "Vacaciones y licencias\nP: ¿Qué licencias especiales puedo registrar además de las vacaciones?\nR: Además de las vacaciones, Nexo HR incluye por defecto los siguientes tipos de ausencia: enfermedad, maternidad, paternidad, matrimonio, fallecimiento de familiar, mudanza, examen de estudio y día personal. Cada tipo tiene reglas propias: por ejemplo, la licencia por enfermedad exige adjuntar un certificado médico dentro de las 48 horas y la licencia por examen requiere el comprobante de la institución educativa. Los administradores pueden crear tipos de ausencia personalizados desde Configuración > Ausencias > Tipos de ausencia, definiendo si son pagas, si descuentan saldo y si requieren aprobación."
+      }
+    ]
+  },
+  {
+    "user_question": "¿Cómo procesa un administrador la nómina?",
+    "system_answer": "El proceso de nómina mensual lo realiza un usuario con rol de Administrador de Nómina:\n1. Ve a Nómina > Nueva liquidación y selecciona el período.\n2. Revisa las novedades del mes: altas, bajas, ausencias, horas extra aprobadas y bonificaciones.\n3. Haz clic en \"Calcular\" para generar la liquidación preliminar.\n4. Revisa el resumen y corrige los conceptos que sean necesarios.\n5. Haz clic en \"Cerrar liquidación\" para bloquear los montos.\n6. Publica los recibos para que los empleados los vean.\nUna liquidación cerrada no se puede editar; si hay un error, se debe generar una liquidación complementaria.",
+    "chunks_related": [
+      {
+        "chunk_id": 19,
+        "section": "Nómina y recibos de sueldo",
+        "similarity": 0.8158,
+        "text": "Nómina y recibos de sueldo\nP: ¿Cómo procesa un administrador la nómina mensual?\nR: El proceso de nómina mensual lo realiza un usuario con rol de Administrador de Nómina:\n1. Ve a Nómina > Nueva liquidación y selecciona el período.\n2. Revisa las novedades del mes: altas, bajas, ausencias, horas extra aprobadas y bonificaciones.\n3. Haz clic en \"Calcular\" para generar la liquidación preliminar.\n4. Revisa el resumen y corrige los conceptos que sean necesarios.\n5. Haz clic en \"Cerrar liquidación\" para bloquear los montos.\n6. Publica los recibos para que los empleados los vean.\nUna liquidación cerrada no se puede editar; si hay un error, se debe generar una liquidación complementaria."
+      },
+      {
+        "chunk_id": 20,
+        "section": "Nómina y recibos de sueldo",
+        "similarity": 0.6278,
+        "text": "Nómina y recibos de sueldo\nP: ¿Nexo HR realiza el pago de los sueldos?\nR: No. Nexo HR calcula la nómina y genera los recibos, pero no transfiere dinero ni actúa como entidad de pago. Al cerrar una liquidación, el sistema genera un archivo de pagos compatible con los principales bancos, que el área de finanzas de tu empresa debe subir a su banca en línea para ejecutar las transferencias. También se puede exportar un asiento contable para el sistema de contabilidad. Si un empleado no recibió su sueldo, debe consultar con el área de finanzas de su empresa, no con el soporte de Nexo HR."
+      },
+      {
+        "chunk_id": 5,
+        "section": "Gestión de empleados",
+        "similarity": 0.5262,
+        "text": "Gestión de empleados\nP: ¿Cómo doy de alta a un nuevo empleado?\nR: Los usuarios con rol de Administrador de RRHH pueden dar de alta empleados desde el módulo Empleados:\n1. Ve a Empleados > Nuevo empleado.\n2. Completa los datos obligatorios: nombre, apellido, correo corporativo, documento de identidad, fecha de ingreso, puesto, departamento y responsable directo.\n3. Asigna la política de vacaciones y el calendario laboral que corresponda.\n4. Opcionalmente, carga el contrato firmado en la pestaña Documentos.\n5. Haz clic en \"Guardar y enviar invitación\".\nEl empleado recibe la invitación por correo y su perfil queda activo desde la fecha de ingreso indicada. Cada alta suma un usuario activo a la facturación del mes."
+      },
+      {
+        "chunk_id": 18,
+        "section": "Nómina y recibos de sueldo",
+        "similarity": 0.5176,
+        "text": "Nómina y recibos de sueldo\nP: ¿Dónde veo y descargo mis recibos de sueldo?\nR: Tus recibos de sueldo están disponibles en Nómina > Mis recibos, tanto en la aplicación web como en la móvil. Cada recibo se publica en formato PDF el día que tu empresa cierra la liquidación del mes. Puedes descargar los recibos de los últimos cinco años. Si tu empresa utiliza firma digital, deberás firmar cada recibo desde la misma pantalla haciendo clic en \"Firmar recibo\" e ingresando un código que recibirás por correo. Los recibos firmados quedan con un sello de fecha y hora."
+      },
+      {
+        "chunk_id": 8,
+        "section": "Gestión de empleados",
+        "similarity": 0.5055,
+        "text": "Gestión de empleados\nP: ¿Un empleado puede modificar sus propios datos personales?\nR: Sí, parcialmente. Desde Mi perfil, cada empleado puede actualizar su domicilio, teléfono, contacto de emergencia, datos bancarios y foto. Los cambios en datos bancarios quedan pendientes hasta que un administrador de RRHH los aprueba, para evitar fraudes en el pago de la nómina. Los datos contractuales, como el puesto, el salario, la fecha de ingreso o el responsable directo, solo pueden ser modificados por usuarios con rol de Administrador de RRHH. Todas las modificaciones quedan registradas en el historial del perfil con la fecha y el usuario que las realizó."
+      }
+    ]
+  },
+  {
+    "user_question": "¿Puedo activar la verificación en dos pasos?",
+    "system_answer": "Sí, puedes activar la verificación en dos pasos desde Mi perfil > Seguridad. Además, si eres administrador de una cuenta en planes Business y Enterprise, puedes hacer que la verificación en dos pasos sea obligatoria para todos los usuarios desde Configuración > Seguridad > Políticas de acceso.",
+    "chunks_related": [
+      {
+        "chunk_id": 3,
+        "section": "Cuenta y acceso",
+        "similarity": 0.6572,
+        "text": "Cuenta y acceso\nP: ¿Nexo HR ofrece verificación en dos pasos?\nR: Sí. La verificación en dos pasos (2FA) está disponible para todos los planes y se configura desde Mi perfil > Seguridad. Se puede usar una aplicación de autenticación compatible con TOTP, como Google Authenticator o Microsoft Authenticator, o recibir un código por SMS. Los administradores de la cuenta en planes Business y Enterprise pueden hacer que la verificación en dos pasos sea obligatoria para todos los usuarios desde Configuración > Seguridad > Políticas de acceso. Al activarla, el sistema entrega diez códigos de recuperación de un solo uso que conviene guardar en un lugar seguro."
+      },
+      {
+        "chunk_id": 1,
+        "section": "Cuenta y acceso",
+        "similarity": 0.4714,
+        "text": "Cuenta y acceso\nP: ¿Cómo activo mi cuenta de Nexo HR por primera vez?\nR: Cuando el área de RRHH de tu empresa te da de alta, recibes un correo de invitación desde no-reply@nexohr.com. Para activar la cuenta sigue estos pasos:\n1. Abre el correo de invitación y haz clic en \"Activar mi cuenta\".\n2. Define una contraseña de al menos 12 caracteres que incluya una mayúscula, un número y un símbolo.\n3. Acepta los términos de uso y la política de privacidad.\n4. Configura la verificación en dos pasos si tu empresa la exige.\nEl enlace de invitación vence a las 72 horas. Si venció, pide a un administrador de RRHH que te reenvíe la invitación desde Empleados > Perfil > Reenviar invitación."
+      }
+    ]
+  },
+  {
+    "user_question": "Me olvidé de fichar, ¿cómo lo corrijo?",
+    "system_answer": "Para corregir un fichaje olvidado, sigue estos pasos:\n\n1. Ve a Asistencia > Mis fichajes.\n2. Selecciona el día en que olvidaste fichar.\n3. Haz clic en \"Solicitar corrección\".\n4. Indica la hora correcta de entrada o salida y el motivo del olvido.\n\nLa corrección quedará pendiente hasta que tu responsable directo la apruebe. Recuerda que puedes solicitar correcciones hasta siete días corridos después de la fecha del fichaje.",
+    "chunks_related": [
+      {
+        "chunk_id": 15,
+        "section": "Control de asistencia",
+        "similarity": 0.642,
+        "text": "Control de asistencia\nP: Me olvidé de fichar. ¿Puedo corregir un fichaje?\nR: Sí. Desde Asistencia > Mis fichajes, selecciona el día y haz clic en \"Solicitar corrección\". Indica la hora correcta de entrada o salida y el motivo del olvido. La corrección queda pendiente hasta que tu responsable directo la aprueba. Las correcciones pueden solicitarse hasta siete días corridos después de la fecha del fichaje; pasado ese plazo, solo un Administrador de RRHH puede modificar el registro. Todas las correcciones aprobadas quedan marcadas en el reporte de asistencia para fines de auditoría."
+      },
+      {
+        "chunk_id": 14,
+        "section": "Control de asistencia",
+        "similarity": 0.5136,
+        "text": "Control de asistencia\nP: ¿Cómo registro mi entrada y salida?\nR: Puedes fichar tu entrada y salida de tres formas: desde el botón \"Fichar\" en la aplicación web, desde la aplicación móvil o desde un kiosco (tablet compartida) instalado en la oficina. Para fichar desde el celular:\n1. Abre la aplicación Nexo HR e inicia sesión.\n2. Toca el botón \"Fichar entrada\" en la pantalla principal.\n3. Si tu empresa exige geolocalización, acepta el permiso de ubicación.\n4. Al terminar la jornada, toca \"Fichar salida\".\nLas pausas, como el almuerzo, se registran con el botón \"Iniciar pausa\" y \"Finalizar pausa\", y no cuentan como tiempo trabajado."
+      }
+    ]
+  },
+  {
+    "user_question": "¿Cuánto cuesta el plan Business?",
+    "system_answer": "El plan Business cuesta 8 dólares por usuario activo por mes.",
+    "chunks_related": [
+      {
+        "chunk_id": 29,
+        "section": "Planes y facturación",
+        "similarity": 0.6004,
+        "text": "Planes y facturación\nP: ¿Hay un período de prueba gratuito?\nR: Sí. Todas las empresas nuevas pueden probar el plan Business gratis durante 14 días, sin ingresar una tarjeta de crédito y con hasta 50 empleados. Durante la prueba se pueden usar todas las funcionalidades del plan Business, incluida la nómina. Al finalizar los 14 días, si no se eligió un plan, la cuenta pasa a modo solo lectura durante 30 días. Los datos cargados durante la prueba se conservan al contratar cualquier plan, por lo que no es necesario volver a configurar la cuenta."
+      },
+      {
+        "chunk_id": 26,
+        "section": "Planes y facturación",
+        "similarity": 0.5884,
+        "text": "Planes y facturación\nP: ¿Qué planes ofrece Nexo HR y cuánto cuestan?\nR: Nexo HR ofrece tres planes con facturación por usuario activo por mes. El plan Starter cuesta 4 dólares por usuario e incluye gestión de empleados, vacaciones y licencias, y control de asistencia. El plan Business cuesta 8 dólares por usuario y suma nómina, evaluaciones de desempeño, SSO, reportes programados e integraciones. El plan Enterprise tiene precio a medida para empresas de más de 1.000 empleados e incluye un gerente de cuenta dedicado, acuerdo de nivel de servicio del 99,9% y entorno de pruebas. Todos los planes tienen un mínimo de 20 usuarios facturables."
+      },
+      {
+        "chunk_id": 28,
+        "section": "Planes y facturación",
+        "similarity": 0.4732,
+        "text": "Planes y facturación\nP: ¿Puedo cambiar de plan o cancelar la suscripción?\nR: Sí. Puedes pasar a un plan superior en cualquier momento desde Configuración > Facturación > Cambiar plan; el cambio es inmediato y se cobra la diferencia proporcional de los días restantes del mes. El cambio a un plan inferior se aplica al inicio del siguiente período de facturación. Para cancelar la suscripción, el propietario de la cuenta debe hacerlo desde Configuración > Facturación > Cancelar suscripción. Después de cancelar, la cuenta permanece en modo solo lectura durante 30 días para que puedas exportar tus datos, y luego se eliminan de forma definitiva."
+      }
+    ]
+  },
+  {
+    "user_question": "¿Cuál es la capital de Francia?",
+    "system_answer": "No encontré esa información en la documentación de Nexo HR.",
+    "chunks_related": [
+      {
+        "chunk_id": 2,
+        "section": "Cuenta y acceso",
+        "similarity": 0.1048,
+        "text": "Cuenta y acceso\nP: Olvidé mi contraseña. ¿Cómo la restablezco?\nR: En la pantalla de inicio de sesión haz clic en \"¿Olvidaste tu contraseña?\", ingresa tu correo corporativo y recibirás un enlace de restablecimiento válido por 30 minutos. La nueva contraseña no puede ser igual a ninguna de las últimas cinco que usaste. Por seguridad, después de cinco intentos fallidos de inicio de sesión la cuenta se bloquea durante 15 minutos. Si tu empresa usa inicio de sesión único (SSO), la contraseña se gestiona en tu proveedor de identidad y debes contactar a tu área de sistemas."
+      },
+      {
+        "chunk_id": 30,
+        "section": "Seguridad y privacidad de datos",
+        "similarity": 0.0779,
+        "text": "Seguridad y privacidad de datos\nP: ¿Dónde se almacenan los datos y cómo se protegen?\nR: Los datos de Nexo HR se almacenan en centros de datos de Amazon Web Services ubicados en la región elegida al crear la cuenta: Estados Unidos, Unión Europea o Brasil. Toda la información se cifra en tránsito con TLS 1.2 o superior y en reposo con AES-256. Se realizan copias de seguridad automáticas cada 24 horas que se conservan durante 35 días. Nexo HR cuenta con la certificación ISO 27001 y un informe SOC 2 Tipo II, que los clientes Enterprise pueden solicitar a su gerente de cuenta bajo acuerdo de confidencialidad."
+      }
+    ]
+  }
+]

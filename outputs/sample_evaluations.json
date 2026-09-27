@@ -1,0 +1,44 @@
+[
+  {
+    "user_question": "¿Cuántos días de vacaciones tengo?",
+    "evaluation": {
+      "score": 10,
+      "reason": "Puntaje 10: relevancia 3/3, fidelidad 4/4, completitud 3/3. La respuesta del sistema es completamente relevante ya que utiliza información directamente extraída de los fragmentos recuperados. Todas las afirmaciones sobre la cantidad de días de vacaciones están respaldadas por el contexto, por lo que no se restan puntos en faithfulness. Además, la respuesta cubre adecuadamente la pregunta del usuario, proporcionando detalles sobre la política de vacaciones, lo que justifica la calificación máxima en completeness."
+    }
+  },
+  {
+    "user_question": "¿Cómo procesa un administrador la nómina?",
+    "evaluation": {
+      "score": 10,
+      "reason": "Puntaje 10: relevancia 3/3, fidelidad 4/4, completitud 3/3. La respuesta del sistema es completamente relevante ya que se basa en el contexto proporcionado, que detalla el proceso de nómina. Todas las afirmaciones en la respuesta están respaldadas por el contexto, sin datos inventados, lo que justifica la calificación máxima en faithfulness. Además, la respuesta cubre todos los aspectos de la pregunta, explicando claramente el proceso que debe seguir un administrador para procesar la nómina."
+    }
+  },
+  {
+    "user_question": "¿Puedo activar la verificación en dos pasos?",
+    "evaluation": {
+      "score": 10,
+      "reason": "Puntaje 10: relevancia 3/3, fidelidad 4/4, completitud 3/3. Los fragmentos recuperados son completamente relevantes ya que abordan directamente la pregunta sobre la verificación en dos pasos. La respuesta del sistema es fiel al contexto, ya que no incluye información inventada y respalda todas las afirmaciones con datos del contexto. Además, la respuesta cubre todos los aspectos de la pregunta, incluyendo la activación y la opción para administradores."
+    }
+  },
+  {
+    "user_question": "Me olvidé de fichar, ¿cómo lo corrijo?",
+    "evaluation": {
+      "score": 10,
+      "reason": "Puntaje 10: relevancia 3/3, fidelidad 4/4, completitud 3/3. Los fragmentos recuperados son completamente relevantes, ya que proporcionan la información necesaria para corregir un fichaje olvidado. La respuesta del sistema está completamente respaldada por el contexto, sin datos inventados. Además, cubre todos los aspectos de la pregunta, incluyendo el proceso y el plazo para solicitar la corrección."
+    }
+  },
+  {
+    "user_question": "¿Cuánto cuesta el plan Business?",
+    "evaluation": {
+      "score": 10,
+      "reason": "Puntaje 10: relevancia 3/3, fidelidad 4/4, completitud 3/3. Los fragmentos recuperados contienen información clara sobre el costo del plan Business, lo que hace que la respuesta sea completamente relevante y fiel al contexto. Además, la respuesta cubre completamente la pregunta del usuario, proporcionando el precio exacto solicitado."
+    }
+  },
+  {
+    "user_question": "¿Cuál es la capital de Francia?",
+    "evaluation": {
+      "score": 7,
+      "reason": "Puntaje 7: relevancia 0/3, fidelidad 4/4, completitud 3/3. Los fragmentos recuperados no contienen información relevante sobre la capital de Francia, por lo que la relevancia es 0. La respuesta del sistema es correcta al indicar que no se encontró información, lo que respalda su fidelidad y completitud, obteniendo la máxima puntuación en esas dimensiones."
+    }
+  }
+]

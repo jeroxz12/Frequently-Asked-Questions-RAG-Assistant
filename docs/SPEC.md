@@ -45,10 +45,11 @@ src/embeddings.py            # wrapper de la API de embeddings (lo usan ambos pi
 src/vector_store.py          # guardar/cargar índice + búsqueda por similitud
 src/build_index.py           # pipeline de indexación
 src/query.py                 # pipeline de consulta
+src/samples.py               # preguntas de ejemplo + chequeo de palabras clave (M6)
 src/evaluator.py             # agente evaluador (bonus)
 src/api.py                   # (opcional, M10) endpoint FastAPI
 docker-compose.yml           # (opcional, M11) Postgres + pgvector
-main.py                      # CLI: `build`, `ask`
+main.py                      # CLI: `build`, `ask`, `samples`
 tests/
 .env.example
 requirements.txt             # versiones fijadas
@@ -124,7 +125,7 @@ Exactamente tres claves en el nivel superior (la rúbrica lo exige):
 | `MAX_CHUNK_TOKENS` | 500 | `src/config.py` |
 | `TOP_K` | 5 | `src/config.py` |
 | `MIN_RESULTS` | 2 | `src/config.py` |
-| `SIMILARITY_THRESHOLD` | a calibrar en M4 | `src/config.py` |
+| `SIMILARITY_THRESHOLD` | 0.45 (calibrado en M4: el chunk correcto da 0.64–0.82, los relacionados 0.45–0.63, el ruido ≤0.43 y las preguntas fuera de tema ≤0.25) | `src/config.py` |
 | `EMBEDDING_MODEL` | `text-embedding-3-small` | `.env` |
 | `OPENAI_MODEL` | `gpt-4o-mini` | `.env` |
 
@@ -155,7 +156,7 @@ Cada milestone sigue el mismo ciclo: **concepto → contrato → implementación
 | M10 | Opcional: API con FastAPI | Endpoints, validación con Pydantic, códigos HTTP, Swagger | `src/api.py`: `POST /ask`, `GET /health` | El endpoint devuelve el mismo `QueryResult` que la CLI; 400 si la pregunta está vacía, 503 si no hay índice |
 | M11 | Opcional: pgvector | Interfaz de vector store, bases vectoriales, índices en Postgres | Interfaz `VectorStore` (`add`, `search`), `NumpyVectorStore`, `PgVectorStore`, `docker-compose.yml` | Mismos resultados de búsqueda con ambos backends; `VECTOR_STORE=numpy` sigue siendo el default y no requiere Docker |
 
-Estado: M0 ✅ · M1 ✅ · M2 siguiente.
+Estado: M0 ✅ · M1 ✅ · M2 ✅ · M3 ✅ · M4 ✅ · M5 ✅ · M6 ✅ · M7 ✅ · M8 ✅ · Opcionales (M9–M11) pendientes.
 
 Regla para los opcionales: toda la lógica RAG vive en `answer_question(question) -> QueryResult`. La CLI y la API son dos puertas de entrada a esa misma función, y el backend de almacenamiento se elige por configuración sin tocar los pipelines.
 

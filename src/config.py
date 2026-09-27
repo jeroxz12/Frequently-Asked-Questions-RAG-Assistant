@@ -19,6 +19,7 @@ MAX_CHUNK_TOKENS = 500
 
 TOP_K = 5
 MIN_RESULTS = 2
+SIMILARITY_THRESHOLD = 0.45
 
 
 class ConfigurationError(Exception):

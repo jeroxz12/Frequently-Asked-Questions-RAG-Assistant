@@ -1,5 +1,5 @@
 openai==3.19.2
-numpy==2.5.3
+numpy==2.4.6
 tiktoken==0.14.0
 pydantic==2.13.5
 python-dotenv==1.2.3
