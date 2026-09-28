@@ -23,6 +23,14 @@ class RetrievedChunk(BaseModel):
     text: str
 
 
+class AskRequest(BaseModel):
+    """Body of POST /ask."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    question: str
+
+
 class GeneratedAnswer(BaseModel):
     """Structured Output the LLM must return."""
 

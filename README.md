@@ -57,6 +57,7 @@ CONSULTA (cada pregunta):   python main.py ask "..."
 | `src/query.py` | Pipeline de consulta: `answer_question(question) -> QueryResult` |
 | `src/evaluator.py` | Agente evaluador (LLM-as-judge) |
 | `src/samples.py` | Preguntas de ejemplo y chequeo de relevancia por palabras clave |
+| `src/api.py` | API HTTP con FastAPI: `GET /health`, `POST /ask` |
 | `main.py` | CLI: `build`, `ask`, `samples` |
 
 ## Instalación
@@ -100,6 +101,35 @@ Index saved to .../data/index
 ```
 
 Los errores se muestran en una línea clara y el programa termina con código 1: documento inexistente o con encoding inválido, API key faltante, índice no construido, pregunta vacía o fallas de la API.
+
+### API HTTP (FastAPI)
+
+La API es otra puerta de entrada a la misma función `answer_question` que usa la CLI, así que devuelve exactamente el mismo `QueryResult`.
+
+```bash
+uvicorn src.api:app --reload      # documentación interactiva en http://127.0.0.1:8000/docs
+```
+
+```bash
+curl http://127.0.0.1:8000/health
+# {"status": "ready", "chunks_loaded": 34}
+
+curl -X POST http://127.0.0.1:8000/ask \
+  -H "Content-Type: application/json" \
+  -d '{"question": "¿Cuánto cuesta el plan Business?"}'
+# {"user_question": "...", "system_answer": "El plan Business cuesta 8 dólares...", "chunks_related": [...]}
+```
+
+| Endpoint | Código | Cuándo |
+|---|---|---|
+| `GET /health` | 200 | Índice cargado (devuelve la cantidad de chunks) |
+| `GET /health` | 503 | No se corrió `python main.py build` |
+| `POST /ask` | 200 | Respuesta generada |
+| `POST /ask` | 400 | Pregunta vacía |
+| `POST /ask` | 422 | Body inválido (FastAPI lo valida con Pydantic) |
+| `POST /ask` | 503 | Índice no construido |
+| `POST /ask` | 502 | Falla la API de OpenAI |
+| `POST /ask` | 500 | Falta `OPENAI_API_KEY` en el servidor |
 
 ## Decisiones técnicas
 
@@ -184,7 +214,7 @@ Verificación: a una respuesta con un precio inventado ("15 dólares" en vez de 
 ## Tests
 
 ```bash
-python -m pytest     # 48 tests, ninguno llama a OpenAI
+python -m pytest     # 55 tests, ninguno llama a OpenAI
 ```
 
 - Carga del documento y sus errores (inexistente, encoding inválido, vacío).
@@ -192,10 +222,12 @@ python -m pytest     # 48 tests, ninguno llama a OpenAI
 - Similitud coseno y búsqueda con vectores de juguete de 2 dimensiones (resultados calculables a mano).
 - Pipelines de embeddings, consulta y evaluador, con clientes de OpenAI falsos.
 - Validación de los esquemas (3 claves, 2–5 chunks, score 0–10, reason ≥50 caracteres) y errores de la CLI.
+- Endpoints de la API con el `TestClient` de FastAPI: 200, 400, 422, 502 y 503.
 
 ## Limitaciones y próximos pasos
 
 - El chunking depende del formato `## ` / `P:` / `R:`; otro documento necesitaría otra estrategia.
 - El mínimo de 2 chunks hace que, cuando solo un chunk supera el umbral, el segundo entre como relleno aunque sea poco relevante.
 - El chequeo de relevancia por palabras clave es simple; el evaluador lo complementa.
-- Opcionales del plan (`docs/SPEC.md`): comparación ANN vs. k-NN, API con FastAPI y backend pgvector.
+- La API vuelve a leer el índice de disco en cada request; con un índice grande convendría cargarlo una vez al iniciar el servidor.
+- Opcionales pendientes del plan (`docs/SPEC.md`): comparación ANN vs. k-NN y backend pgvector.

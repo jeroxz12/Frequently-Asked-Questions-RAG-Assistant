@@ -156,7 +156,7 @@ Cada milestone sigue el mismo ciclo: **concepto → contrato → implementación
 | M10 | Opcional: API con FastAPI | Endpoints, validación con Pydantic, códigos HTTP, Swagger | `src/api.py`: `POST /ask`, `GET /health` | El endpoint devuelve el mismo `QueryResult` que la CLI; 400 si la pregunta está vacía, 503 si no hay índice |
 | M11 | Opcional: pgvector | Interfaz de vector store, bases vectoriales, índices en Postgres | Interfaz `VectorStore` (`add`, `search`), `NumpyVectorStore`, `PgVectorStore`, `docker-compose.yml` | Mismos resultados de búsqueda con ambos backends; `VECTOR_STORE=numpy` sigue siendo el default y no requiere Docker |
 
-Estado: M0 ✅ · M1 ✅ · M2 ✅ · M3 ✅ · M4 ✅ · M5 ✅ · M6 ✅ · M7 ✅ · M8 ✅ · Opcionales (M9–M11) pendientes.
+Estado: M0 ✅ · M1 ✅ · M2 ✅ · M3 ✅ · M4 ✅ · M5 ✅ · M6 ✅ · M7 ✅ · M8 ✅ · M10 ✅ · Opcionales M9 y M11 pendientes.
 
 Regla para los opcionales: toda la lógica RAG vive en `answer_question(question) -> QueryResult`. La CLI y la API son dos puertas de entrada a esa misma función, y el backend de almacenamiento se elige por configuración sin tocar los pipelines.
 
