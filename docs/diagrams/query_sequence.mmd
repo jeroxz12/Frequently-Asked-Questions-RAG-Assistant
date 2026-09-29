@@ -1,0 +1,22 @@
+sequenceDiagram
+    autonumber
+    actor U as Cliente
+    participant E as main.py / api.py
+    participant Q as query.py<br/>answer_question
+    participant V as vector_store.py
+    participant O as OpenAI
+
+    U->>E: pregunta
+    E->>Q: answer_question(question)
+    Q->>V: load_index()
+    V-->>Q: 34 chunks + matriz 34×1536
+    Q->>O: embed_query (text-embedding-3-small)
+    O-->>Q: vector de 1536 dimensiones
+    Q->>V: search_similar_chunks
+    Note over V: similitud coseno contra los 34 chunks<br/>top 5 · umbral 0.45 · mínimo 2
+    V-->>Q: 2–5 RetrievedChunk
+    Q->>Q: build_context (fragmentos numerados)
+    Q->>O: generate_answer (gpt-4o-mini, Structured Output)
+    O-->>Q: {"answer": "..."}
+    Q-->>E: QueryResult
+    E-->>U: JSON: user_question · system_answer · chunks_related

@@ -1,0 +1,32 @@
+flowchart LR
+    client["Cliente HTTP<br/>(curl, app, /docs)"]
+
+    subgraph fastapi["FastAPI · src/api.py"]
+        health["<b>GET /health</b>"]
+        ask["<b>POST /ask</b><br/>body: {&quot;question&quot;: &quot;...&quot;}"]
+    end
+
+    rag["answer_question()<br/>mismo pipeline que la CLI"]
+
+    client --> health
+    client --> ask
+    ask --> rag
+
+    health -- "índice cargado" --> h200["<b>200</b><br/>{status, chunks_loaded}"]
+    health -- "sin índice" --> h503["<b>503</b><br/>correr main.py build"]
+
+    rag -- "respuesta generada" --> a200["<b>200</b><br/>QueryResult (3 claves)"]
+    ask -- "body inválido" --> a422["<b>422</b><br/>validación Pydantic"]
+    rag -- "pregunta vacía" --> a400["<b>400</b>"]
+    rag -- "sin índice" --> a503["<b>503</b>"]
+    rag -- "falla OpenAI" --> a502["<b>502</b>"]
+    rag -- "falta API key" --> a500["<b>500</b>"]
+
+    classDef ok fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef clientErr fill:#fff3e0,stroke:#ef6c00,color:#e65100
+    classDef serverErr fill:#ffebee,stroke:#c62828,color:#b71c1c
+    classDef endpoint fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    class h200,a200 ok
+    class a400,a422 clientErr
+    class h503,a503,a502,a500 serverErr
+    class health,ask endpoint

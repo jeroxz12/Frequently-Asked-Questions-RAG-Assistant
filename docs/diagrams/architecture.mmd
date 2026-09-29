@@ -1,0 +1,54 @@
+flowchart LR
+    subgraph clients["Clientes"]
+        user["Usuario<br/>(terminal)"]
+        app["App externa<br/>(chat, Slack, tickets)"]
+    end
+
+    subgraph entry["Puertas de entrada"]
+        cli["<b>main.py</b><br/>CLI: build · ask · samples"]
+        api["<b>src/api.py</b><br/>FastAPI<br/>GET /health · POST /ask"]
+    end
+
+    subgraph core["Núcleo RAG · src/"]
+        build["<b>build_index.py</b><br/>load → chunk → embed → save"]
+        query["<b>query.py</b><br/>answer_question()"]
+        evaluator["<b>evaluator.py</b><br/>LLM-as-judge"]
+        emb["<b>embeddings.py</b><br/>generate_embeddings<br/>embed_query"]
+        vs["<b>vector_store.py</b><br/>save/load_index<br/>similitud coseno · k-NN"]
+    end
+
+    subgraph storage["Almacenamiento local"]
+        doc[("data/faq_document.txt")]
+        idx[("data/index/<br/>chunks.json<br/>embeddings.npy")]
+    end
+
+    subgraph openai["OpenAI API"]
+        embapi["text-embedding-3-small"]
+        llm["gpt-4o-mini"]
+    end
+
+    user --> cli
+    app -- "HTTP / JSON" --> api
+    cli --> build
+    cli --> query
+    cli --> evaluator
+    api --> query
+
+    build --> doc
+    build --> emb
+    build --> vs
+    query --> emb
+    query --> vs
+    query --> llm
+    evaluator --> llm
+    emb --> embapi
+    vs <--> idx
+
+    classDef entryStyle fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef coreStyle fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef storeStyle fill:#fff8e1,stroke:#f9a825,color:#5d4037
+    classDef aiStyle fill:#f3e5f5,stroke:#6a1b9a,color:#4a148c
+    class cli,api entryStyle
+    class build,query,evaluator,emb,vs coreStyle
+    class doc,idx storeStyle
+    class embapi,llm aiStyle

@@ -37,15 +37,27 @@ Beneficios:
 
 ## Arquitectura
 
-```
-INDEXACIÓN (una vez):   python main.py build
-  data/faq_document.txt → load_document → chunk_document → generate_embeddings → save_index → data/index/
+### Componentes
 
-CONSULTA (cada pregunta):   python main.py ask "..."
-  pregunta → embed_query → search_similar_chunks → build_context → generate_answer → QueryResult (JSON)
-                                                                                         │
-                                                                    (bonus) evaluate_answer → Evaluation
-```
+![Arquitectura de componentes](docs/images/architecture.png)
+
+Hay dos **puertas de entrada**, la CLI (`main.py`) y la API HTTP (`src/api.py`). Las dos llaman a la misma función `answer_question`, así que responden igual. El **núcleo RAG** vive en `src/`: una función por etapa, con OpenAI solo para los embeddings y la generación. El índice se guarda en **archivos locales**, sin base de datos.
+
+### Pipeline de indexación (una vez)
+
+`python main.py build`
+
+![Pipeline de indexación](docs/images/indexing.png)
+
+### Pipeline de consulta (cada pregunta)
+
+`python main.py ask "..."` o `POST /ask`
+
+![Secuencia de una consulta](docs/images/query_sequence.png)
+
+El paso de **recuperar** va del 3 al 8: embeber la pregunta y buscar los chunks más parecidos. El de **generar** va del 9 al 11: armar el contexto y pedirle la respuesta al LLM. El evaluador (bonus) se ejecuta después, sobre el `QueryResult`, con `--evaluate` o `python main.py samples`.
+
+> Los diagramas se generan desde archivos Mermaid en `docs/diagrams/`. Para regenerarlos: `npx @mermaid-js/mermaid-cli -i docs/diagrams/architecture.mmd -o docs/images/architecture.png -b white -s 2`. También se pueden abrir en draw.io con *Arrange → Insert → Advanced → Mermaid*.
 
 | Archivo | Responsabilidad |
 |---|---|
@@ -105,6 +117,8 @@ Los errores se muestran en una línea clara y el programa termina con código 1:
 ### API HTTP (FastAPI)
 
 La API es otra puerta de entrada a la misma función `answer_question` que usa la CLI, así que devuelve exactamente el mismo `QueryResult`.
+
+![Endpoints y códigos HTTP](docs/images/api_endpoints.png)
 
 ```bash
 uvicorn src.api:app --reload      # documentación interactiva en http://127.0.0.1:8000/docs

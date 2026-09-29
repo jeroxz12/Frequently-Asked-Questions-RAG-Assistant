@@ -1,0 +1,17 @@
+flowchart LR
+    doc[("<b>faq_document.txt</b><br/>~3.400 palabras<br/>11 secciones · 33 P/R")]
+    load["<b>load_document</b><br/>lee UTF-8<br/>valida: existe, encoding, no vacío"]
+    chunk["<b>chunk_document</b><br/>1 chunk por par P/R<br/>+ prefijo de sección<br/>límite 50–500 tokens (tiktoken)"]
+    embed["<b>generate_embeddings</b><br/>text-embedding-3-small<br/>1 llamada a la API"]
+    save["<b>save_index</b>"]
+    json[("<b>chunks.json</b><br/>34 chunks<br/>136–197 tokens")]
+    npy[("<b>embeddings.npy</b><br/>matriz 34 × 1536<br/>float32")]
+
+    doc --> load --> chunk --> embed --> save
+    save --> json
+    save --> npy
+
+    classDef step fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef store fill:#fff8e1,stroke:#f9a825,color:#5d4037
+    class load,chunk,embed,save step
+    class doc,json,npy store
